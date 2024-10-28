@@ -5,9 +5,10 @@
     ```curl https://raw.githubusercontent.com/JustJabka/archinstall/main/preinstall.sh -o preinstall.sh```
 
 4. run **preinstall.sh**
-    ```sh preinstall.sh```
 
-5. Enter:
+   ```sh preinstall.sh```
+
+6. Enter:
     - hostname
     - root password
     - username
@@ -16,4 +17,4 @@
     - swap partition
     - root partition
 
-6. Wait for the reboot
+7. Wait for the reboot
