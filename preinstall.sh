@@ -37,7 +37,7 @@ genfstab /mnt > /mnt/etc/fstab
 arch-chroot /mnt /bin/bash <<EOF
 
 # Time zone
-ln -sf /usr/share/zoneinfo/Europe/Kyiv /etc/localtime
+ln -sf /usr/share/zoneinfo/Universal /etc/localtime
 hwclock --systohc
 
 # Language
