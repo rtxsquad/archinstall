@@ -11,30 +11,36 @@ echo
 read -p "Enter username: " user
 read -sp "Enter password for user: " user_password
 echo
+read -p "EFI partition (Example: /dev/nvme0n1p1): " efi
+read -p "Swap partition (Example: /dev/nvme0n1p2): " swap
+read -p "Root partition (Example: /dev/nvme0n1p3): " root
+echo
 
-echo "Formatting file systems..."
-mkfs.fat -F32 /dev/nvme0n1p1
-mkswap /dev/nvme0n1p2
-mkfs.ext4 /dev/nvme0n1p3
+# Formatting file systems
+mkfs.fat -F32 $efi
+mkswap $swap
+mkfs.ext4 $root
 
-echo "Mounting partitions..."
-mount /dev/nvme0n1p3 /mnt
+# Mounting partitions
+mount $root /mnt
 mkdir -p /mnt/boot/efi
-mount /dev/nvme0n1p1 /mnt/boot/efi
-swapon /dev/nvme0n1p2
+mount $efi /mnt/boot/efi
+swapon $swap
 
-echo "Installing basic packages..."
+# Installing basic packages
 pacstrap /mnt base linux linux-firmware sof-firmware intel-ucode base-devel grub efibootmgr nano networkmanager
 
-echo "Generating fstab..."
+# Generating fstab
 genfstab /mnt > /mnt/etc/fstab
 
-echo "Entering the chroot..."
+# Entering the chroot
 arch-chroot /mnt /bin/bash <<EOF
 
+# Time zone
 ln -sf /usr/share/zoneinfo/Europe/Kyiv /etc/localtime
 hwclock --systohc
 
+# Language
 echo "en_US.UTF-8 UTF-8" >> /etc/locale.gen
 locale-gen
 echo "LANG=en_US.UTF-8" > /etc/locale.conf
@@ -56,8 +62,5 @@ grub-mkconfig -o /boot/grub/grub.cfg
 
 EOF
 
-echo "Completing the setup in chroot..."
-
 umount -R /mnt
-echo "Reboot..."
 reboot
