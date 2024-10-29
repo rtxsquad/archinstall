@@ -6,13 +6,7 @@ if [ "$EUID" -ne 0 ]; then
 fi
 
 sudo pacman -S --noconfirm hyprland ly kitty git firefox
-
-config_file="$HOME/.config/hypr/hyprland.conf"
-
-if [ -f "$config_file" ]; then
-  sed -i '8d' "$config_file"
-else
-  echo "Config file $config_file not found."
-fi
+sudo pacman -S --noconfirm noto-fonts noto-fonts-cjk noto-fonts-emoji ttf-firacode-nerd
+sudo fc-cache -fv
 
 sudo systemctl --now enable ly.service
