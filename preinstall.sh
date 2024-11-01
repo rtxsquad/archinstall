@@ -11,6 +11,7 @@ echo
 read -p "Enter username: " user
 read -sp "Enter password for user: " user_password
 echo
+read -p "Partition (Example: /dev/nvme0n1): " partition
 read -p "EFI partition (Example: /dev/nvme0n1p1): " efi
 read -p "Swap partition (Example: /dev/nvme0n1p2): " swap
 read -p "Root partition (Example: /dev/nvme0n1p3): " root
@@ -57,7 +58,7 @@ sed -i 's/^# %wheel ALL=(ALL:ALL) ALL/%wheel ALL=(ALL:ALL) ALL/' /etc/sudoers
 
 systemctl enable NetworkManager
 
-grub-install /dev/nvme0n1
+grub-install $partition
 grub-mkconfig -o /boot/grub/grub.cfg
 
 EOF
