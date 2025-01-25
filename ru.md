@@ -1,18 +1,20 @@
 ## О скрипте
 
-- [Англ](README.md) Ру Укр
+- [Англ](README.md) Ру [Укр](ua.md)
 
 Этот скрипт сделан для простой установки ArchLinux. Разработчик скрипта [JustJabka](https://github.com/JustJabka).
 
 ## Ру гайд
 1. Подключитесь к wifi, если у вас Ethernet (проводное) подключение, пропустите этот шаг
 2. Отформатируйте и разметите ваш диск
-3. Скачайте curl с помощью команды. Скачайте preinstall.sh
+3. Скачайте preinstall.sh
 
-   
+   ```curl https://raw.githubusercontent.com/JustJabka/archinstall/main/preinstall.sh -o preinstall.sh```
+
 5. Запустите preinstall.sh
 
-  
+  ```sh preinstall.sh```
+
 6. Введите:
     - hostname (название устройства)
     - root password (пароль учетной записи администратора)
