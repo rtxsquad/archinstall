@@ -1,6 +1,6 @@
 ## About
 
-- En Ru Ua
+- En [Ru](ru.md) [Ua](ua.md)
 
 This script is made for a simple ArchLinux installation. Script developer [JustJabka](https://github.com/JustJabka)
 
