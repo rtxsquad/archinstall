@@ -2,7 +2,7 @@
 
 - En Ru Ua
 
-This script is made for a simple ArchLinux installation. Script developer [JustJabka](https://github.com)
+This script is made for a simple ArchLinux installation. Script developer [JustJabka](https://github.com/JustJabka)
 
 ## En guide
 1. Connect to wifi, if you have an Ethernet connection, skip this step
