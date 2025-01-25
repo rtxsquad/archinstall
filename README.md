@@ -1,3 +1,10 @@
+## About
+
+- En Ru Ua
+
+This script is made for a simple ArchLinux installation. Script developer [JustJabka](https://github.com)
+
+## En guide
 1. Connect to wifi, if you have an Ethernet connection, skip this step
 2. Format and partition your disk
 3. Get **preinstall.sh**
